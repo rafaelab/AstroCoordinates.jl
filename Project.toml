@@ -1,0 +1,4 @@
+name = "AstronomicalCoordinates"
+uuid = "caa59f73-bae3-481d-ad70-51c645d51e09"
+authors = ["Rafael <rafaelab@users.noreply.github.com>"]
+version = "0.1.0"
