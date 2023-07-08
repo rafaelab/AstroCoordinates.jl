@@ -1,6 +1,7 @@
 export 
 	getLatitude,
-	getLongitude
+	getLongitude,
+	getAltitude
 
 # ---------------------------------------------------------------------------------- #
 #
@@ -31,5 +32,13 @@ getLatitude(geocoord::AbstractGeoCoordinates) = geocoord.λ
 Get longitude.
 """
 getLongitude(geocoord::AbstractGeoCoordinates) = geocoord.φ
+
+
+# ---------------------------------------------------------------------------------- #
+#
+@doc """
+Get altitude.
+"""
+getAltitude(geocoord::AbstractGeoCoordinates) = geocoord.a
 
 # ---------------------------------------------------------------------------------- #
