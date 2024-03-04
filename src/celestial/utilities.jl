@@ -3,7 +3,7 @@ export
 
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 Angle between the Earth's axis and the zenith.
@@ -21,7 +21,7 @@ computeHourAngle(lst::Union{TimeLMST, TimeLAST}, α::Angle) = Time(lst.value) - 
 computeHourAngle(lst::Time, α::Angle) =  computeHourAngle(TimeLAST(lst), angle)
 computeHourAngle(lst::Real, α::Real) = computeHourAngle(lst * u"°", α * u"°")
 computeHourAngle(lst::Time, α::Angle) = computeHourAngle(Time(Nanosecond(lst).value * 1e9 * u"s"), α)
-computeHourAngle(lst::Time, α::Real) = computeHourAngle(lst, α * u"°")
+# computeHourAngle(lst::Unitful.Time, α::Α) where {Α <: Union{Real, <: Angle}} = computeHourAngle(convert(CompoundPeriod, Time(lst.value)), α * u"°") 
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
