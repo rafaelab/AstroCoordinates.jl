@@ -2,7 +2,7 @@ export
 	CoordinatesEcliptic
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 Angle referring to the Earth's axis of rotation with respect to the orbital plane of the Earth around the Sun.
@@ -19,7 +19,7 @@ Newcomb, Simon (1906). A Compendium of Spherical Astronomy. MacMillan Co., New Y
 const ε_o =  23.439291111 * u"°"
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 This coordinate system used the plane of the ecliptic as a reference.
@@ -38,7 +38,8 @@ CoordinatesEcliptic(λ::Angle{Λ}, β::Angle{Β}) where {Λ, Β} = CoordinatesEc
 
 CoordinatesEcliptic(λ::Real, β::Real) = CoordinatesEcliptic(λ * u"°", β * u"°")
 
-# ---------------------------------------------------------------------------------- #
+
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 $(_docs_getLongitude_str)
@@ -46,7 +47,7 @@ $(_docs_getLongitude_str)
 getLongitude(coord::CoordinatesEcliptic) = coord.λ
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 $(_docs_getLatitude_str)
@@ -54,4 +55,4 @@ $(_docs_getLatitude_str)
 getLatitude(coord::CoordinatesEcliptic) = coord.β
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
