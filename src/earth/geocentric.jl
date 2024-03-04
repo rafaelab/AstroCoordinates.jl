@@ -2,7 +2,7 @@ export
 	GeoCoordinatesGeocentric
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """ 
 Geocentric coordinate system plus altitude (with respect to sea level).
@@ -30,4 +30,4 @@ GeoCoordinatesGeocentric(φ::Real, λ::Real, a::Real) = GeoCoordinatesGeocentric
 GeoCoordinatesGeocentric(φ::Real, λ::Real) = GeoCoordinatesGeocentric(φ, λ, 0.)
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #

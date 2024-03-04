@@ -1,7 +1,7 @@
 export
 	GeoCoordinatesGeodetic
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """ 
 Geodetic coordinate system plus altitude (with respect to sea level).
@@ -29,4 +29,4 @@ GeoCoordinatesGeodetic(φ::Real, λ::Real, a::Real) = GeoCoordinatesGeodetic(φ 
 GeoCoordinatesGeodetic(φ::Real, λ::Real) = GeoCoordinatesGeodetic(φ * u"°", λ * u"°", 0. * u"m")
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
