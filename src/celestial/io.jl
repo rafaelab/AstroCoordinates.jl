@@ -1,4 +1,4 @@
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 	@show(io, coords)
@@ -43,6 +43,8 @@ function Base.show(io::IO, coords::CoordinatesCartesian)
 	print(io, " (x, y, z) = ($x, $y, $z)")
 end
 
+# ----------------------------------------------------------------------------------------------- #
+#
 # Helper function to craete a consistent style for all `AbstractCoordinatesSky`.
 function _getCoordinatesString(coords::AbstractCoordinatesSky)
 	lat0 = getLatitude(coords) |> u"°"
@@ -53,4 +55,4 @@ function _getCoordinatesString(coords::AbstractCoordinatesSky)
 end
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
