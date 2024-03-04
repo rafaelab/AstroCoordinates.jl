@@ -3,14 +3,14 @@ export
 	computeEquinox
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 Mean value of the orbit's
 """
 const ε_ο = 84381.406 * u"arcsecond" |> u"°"
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 The Earth rotation angle (θ_ERA) refers to the planet's rotation starting at the celestial intermediate origin, at the celestial equator.
@@ -25,7 +25,7 @@ It is very close to the equinox of J2000.
 """
 getEarthRotationAngle(jd::Real) = (mod(2π * (0.7790572732640 + 1.00273781191135448 * (jd - jd_2000)), 2π)) * u"rad" |> u"°"
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 The Earth rotation angle (θ_ERA) refers to the planet's rotation starting at the celestial intermediate origin, at the celestial equator.
@@ -61,7 +61,7 @@ function computeEquinox(jd::Real; referenceJD::Real = jd_2000)
 	return E_Υ * u"arcsecond"
 end
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 Helper function that takes the number of julian centuries and return a polynomial, considering N terms.
@@ -77,7 +77,7 @@ function evaluatePolynomialOfT(jd::Real, coeff::C; referenceJD::Real = jd_2000) 
 end
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 	computeMeanAnomalyMoon(julianDate; referenceJD = julianDate2000)
@@ -99,7 +99,7 @@ It is defined as the fraction of an orbit elapsed since the periapsis.
 computeMeanAnomalyMoon(jd::Real; referenceJD::Real = jd_2000) = evaluatePolynomialOfT(jd, (485868.249036, 1717915923.2178, 31.8792, 0.051635, - 0.00024470); referenceJD = referenceJD) * u"arcsecond"
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 	computeMeanAnomalySun(julianDate; referenceJD = julianDate2000)
@@ -121,7 +121,7 @@ It is defined as the fraction of an orbit elapsed since the periapsis.
 computeMeanAnomalySun(jd::Real; referenceJD::Real = jd_2000) =  evaluatePolynomialOfT(jd, (1287104.79305, 129596581.0481, -0.5532, 0.000136, -0.00001149); referenceJD = referenceJD) * u"arcsecond"
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 	computeMeanArgumentOfLatitudeMoon(julianDate; referenceJD = julianDate2000)
@@ -143,7 +143,7 @@ It is essentially the angle between the ascending node and the body.
 computeMeanArgumentOfLatitudeMoon(jd::Real; referenceJD::Real = jd_2000) = evaluatePolynomialOfT(jd, (335779.526232, 1739527262.8478,  -12.7512,  -0.001037, 0.00000417); referenceJD = referenceJD) * u"arcsecond"
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 	computeMeanElongationMoonSun(julianDate; referenceJD = julianDate2000)
@@ -164,7 +164,7 @@ The angular separation between the Moon and the Sun along the orbit, with respec
 computeMeanElongationMoonSun(jd::Real; referenceJD::Real = jd_2000) = evaluatePolynomialOfT(jd, (1072260.70369, 1602961601.2090, -6.3706, 0.006593, -0.00003169); referenceJD = referenceJD) * u"arcsecond"
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 	computeMeanLongitudeMoonAscendingNode(julianDate; referenceJD = julianDate2000)
@@ -185,7 +185,7 @@ It is the point where the Moon moves into the northern ecliptic hemisphere.
 """
 computeMeanLongitudeMoonAscendingNode(jd::Real; referenceJD::Real = jd_2000) = evaluatePolynomialOfT(jd, (450160.398036, -6962890.5431, 7.4722, 0.007702, -0.00005939); referenceJD = referenceJD) * u"arcsecond"
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 	computeMeanObliquityEcliptic(julianDate; referenceJD = julianDate2000)
@@ -208,7 +208,7 @@ computeMeanObliquityEcliptic(jd::Real; referenceJD::Real = jd_2000) = ε_ο - ev
 
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 	computeNutationInLongitude(julianDate; referenceJD = julianDate2000)
@@ -231,7 +231,7 @@ function computeNutationInLongitude(jd::Real; referenceJD::Real = jd_2000)
 end
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 	computeNutationInObliquity(julianDate; referenceJD = julianDate2000)
@@ -254,4 +254,4 @@ function computeNutationInObliquity(jd::Real; referenceJD::Real = jd_2000)
 end
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #

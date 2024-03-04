@@ -1,4 +1,9 @@
-# type to dispatch on
+
+# ----------------------------------------------------------------------------------------------- #
+#
+@doc """
+Type to dispatch on.
+"""
 Angle{T} = Union{
 	Unitful.Quantity{T, Unitful.NoDims, typeof(u"rad")}, 
 	Unitful.Quantity{T, Unitful.NoDims, typeof(u"°")},
@@ -10,7 +15,7 @@ Length{T} = Unitful.Length{T} where {T}
 
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 Generate a polynomial of the form:
@@ -30,7 +35,7 @@ end
 createPolynomialFunction(coeff::AbstractVector) = createPolynomialFunction(Tuple(coeff))
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 Conversions from time to angles.
@@ -42,4 +47,4 @@ Base.convert(::Type{A}, dt::DateTime) where {A <: Angle} = convert(Angle, Time(d
 Base.convert(::Type{Time}, a::Angle) = convert(Time, a)
 	
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #

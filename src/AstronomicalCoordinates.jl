@@ -23,6 +23,7 @@ include("geocoordinates.jl")
 include("celestialSphere.jl")
 include("time.jl")
 include("coordinates.jl")
+include("projections.jl")
 
 
 end 
