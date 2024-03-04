@@ -3,11 +3,13 @@ export
 	TimeGAST
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
+@doc """
+"""
 abstract type TimeGST <: AbstractTime end
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 This time standard is essentially the right ascension directly above the Greenwich meridian at a given time.
@@ -22,7 +24,7 @@ TimeGMST(d::Date, t::Time) = TimeGMST(DateTime(d, t))
 TimeGMST(year::Integer, month::Integer, day::Integer, hour::Integer, minute::Integer, second::Integer, timeArgs...) = TimeGMST(Date(year, month, day), Time(hour, minute, second, timeArgs...))
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 Greenwich apparent sidereal time (GAST).
@@ -38,7 +40,7 @@ TimeGAST(d::Date, t::Time) = TimeGAST(DateTime(d, t))
 TimeGAST(year::Integer, month::Integer, day::Integer, hour::Integer, minute::Integer, second::Integer, timeArgs...) = TimeGAST(Date(year, month, day), Time(hour, minute, second, timeArgs...))
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 Helper function (unexported) to convert JD to GMST.
@@ -71,7 +73,7 @@ function _jd2gmst(jd::Real; referenceJD::Real = jd_2000)
 end
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
  @doc """
 Helper function (unexported) to convert GMT to GAST.
@@ -92,4 +94,4 @@ function _jd2gast(jd::Real; referenceJD::Real = jd_2000)
 	return (gmst +  E_Υ)
 end
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #

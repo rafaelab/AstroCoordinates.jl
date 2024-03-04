@@ -1,13 +1,21 @@
 export 
 	TimeLMST,
-	TimeLAST
+	TimeLAST,
+	siderealDay
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 abstract type TimeLST <: AbstractTime end	
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
+#
+@doc """
+Duration of the sideral day
+"""
+const siderealDay = 86164.0905 * u"s"
+
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 The local sidereal time (LST) is based on the Earth's rotation with respect to the fixed stars.
@@ -29,7 +37,7 @@ TimeLMST(location::AbstractGeoCoordinates, year::Integer, month::Integer, day::I
 
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 The local sidereal time (LST) is based on the Earth's rotation with respect to the fixed stars.
@@ -50,4 +58,4 @@ TimeLAST(location::AbstractGeoCoordinates, date::Date, time::Time) = TimeLAST(Da
 TimeLAST(location::AbstractGeoCoordinates, year::Integer, month::Integer, day::Integer, hour::Integer, minute::Integer, second::Integer, timeArgs...) = TimeLAST(Date(year, month, day), Time(hour, minute, second, timeArgs...), location)
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #

@@ -1,9 +1,9 @@
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 # List of types that are templated.
 const TimeStandards = Union{TimeUT1, TimeUTC, TimeGMST, TimeGAST, TimeLMST, TimeLAST}
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 Generic methods for some specific types of time standards.
@@ -12,7 +12,7 @@ Dates.Date(dt::TimeStandards) = Date(dt.value)
 Dates.Time(dt::TimeStandards) = Time(dt.value)
 Dates.DateTime(dt::TimeStandards) = DateTime(Date(dt), Time(dt))
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 Number of Julian centuries.
@@ -20,7 +20,7 @@ Number of Julian centuries.
 getNumberOfJulianCenturies(jd::Real; referenceJD::Real = jd_2000) = (jd - referenceJD) / 36525.
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 Read the table of DUT1 = UT1 - UTC.
