@@ -2,7 +2,7 @@ export
 	CoordinatesSuperGalactic
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 Galactic coordinates of the north supergalactic pole (NSGP) and the supergalactic plane origin (0SGP).
@@ -27,7 +27,7 @@ const matrixSuperGalactic2Galactic = SMatrix{3, 3, Float64}(
 	)
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 This coordinate system is based on our local supercluster.
@@ -52,7 +52,7 @@ CoordinatesSuperGalactic(l::Angle{L}, b::Angle{B}) where {L, B} = CoordinatesSup
 
 CoordinatesSuperGalactic(l::Real, b::Real) = CoordinatesSuperGalactic(l * u"°", b * u"°")
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 $(_docs_getLongitude_str)
@@ -60,11 +60,11 @@ $(_docs_getLongitude_str)
 getLongitude(coord::CoordinatesSuperGalactic) = coord.l
 
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
 #
 @doc """
 $(_docs_getLatitude_str)
 """
 getLatitude(coord::CoordinatesSuperGalactic) = coord.b
 
-# ---------------------------------------------------------------------------------- #
+# ----------------------------------------------------------------------------------------------- #
