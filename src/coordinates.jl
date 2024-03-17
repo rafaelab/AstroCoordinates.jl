@@ -40,6 +40,36 @@ Base.eltype(coords::AbstractCoordinatesSky{T}) where {T} = T
 
 
 # ----------------------------------------------------------------------------------------------- #
+#
+@doc """
+Convert types.
+"""
+function Base.convert(::Type{T}, coords::AbstractCoordinatesSky{U}) where {T <: Real, U}
+	if T == U
+		return coords
+	else
+		C = Base.typename(typeof(coords)).wrapper
+		return C(T(getLongitude(coords)), T(getLatitude(coords)))
+	end
+end
+
+
+# ----------------------------------------------------------------------------------------------- #
+#
+@doc """
+Define promotion rules.
+"""
+Base.promote_rule(::Type{CoordinatesEquatorial{T1}}, ::Type{CoordinatesEquatorial{T2}}) where {T1, T2} = CoordinatesEquatorial{promote_type(T1, T2)}
+Base.promote_rule(::Type{CoordinatesGalactic{T1}}, ::Type{CoordinatesGalactic{T2}}) where {T1, T2} = CoordinatesGalactic{promote_type(T1, T2)}
+Base.promote_rule(::Type{CoordinatesSuperGalactic{T1}}, ::Type{CoordinatesSuperGalactic{T2}}) where {T1, T2} = CoordinatesSuperGalactic{promote_type(T1, T2)}
+Base.promote_rule(::Type{CoordinatesICRS{T1}}, ::Type{CoordinatesICRS{T2}}) where {T1, T2} = CoordinatesICRS{promote_type(T1, T2)}
+# Base.promote_rule(::Type{CoordinatesEcliptic{T1}}, ::Type{CoordinatesEcliptic{T2}}) where {T1, T2} = CoordinatesEcliptic{promote_type(T1, T2)}
+
+
+
+
+
+# ----------------------------------------------------------------------------------------------- #
 
 
 
