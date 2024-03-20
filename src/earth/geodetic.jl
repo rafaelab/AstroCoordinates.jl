@@ -22,7 +22,7 @@ function GeoCoordinatesGeodetic(φ::Angle{Φ}, λ::Angle{Λ}, a::Length{A}) wher
 	return GeoCoordinatesGeodetic(T(φ), T(λ), T(a))
 end
 
-GeoCoordinatesGeodetic(φ::Angle{Φ}, λ::Angle{Λ})  where {Φ, Λ, A} = GeoCoordinatesGeodetic(promote(φ, λ)..., 0. * u"m")
+GeoCoordinatesGeodetic(φ::Angle{Φ}, λ::Angle{Λ})  where {Φ, Λ} = GeoCoordinatesGeodetic(promote(φ, λ)..., 0. * u"m")
 
 GeoCoordinatesGeodetic(φ::Real, λ::Real, a::Real) = GeoCoordinatesGeodetic(φ * u"°", λ * u"°", a * u"m")
 
