@@ -15,10 +15,9 @@ end
 
 # ----------------------------------------------------------------------------------------------- #
 #
-# @doc """
 # Overload Julia's base function `convert`.
 # Convert from an object of type `CoordinatesCartesian` to `AbstractCoordinatesSky` .
-# """
+#
 for coordSyss ∈ ("ICRS", "Equatorial", "Galactic", "SuperGalactic")
 	coordSys = Symbol("Coordinates$(coordSyss)")
 	@eval begin
