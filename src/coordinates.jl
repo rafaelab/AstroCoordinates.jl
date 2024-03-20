@@ -28,7 +28,7 @@ include("celestial/supergalactic.jl")
 include("celestial/horizontal.jl")
 include("celestial/utilities.jl")
 include("celestial/transformations.jl")
-# include("celestial/operations.jl")
+include("celestial/operations.jl")
 include("celestial/io.jl")
 
 # ----------------------------------------------------------------------------------------------- #
