@@ -18,10 +18,8 @@ The right ascension `α` is assumed to be given in degrees
 . Object of type `Time` (from `Dates.jl`)
 """
 computeHourAngle(lst::Union{TimeLMST, TimeLAST}, α::Angle) = Time(lst.value) - uconvert(Time, α |> u"hourAngle")
-computeHourAngle(lst::Time, α::Angle) =  computeHourAngle(TimeLAST(lst), angle)
 computeHourAngle(lst::Real, α::Real) = computeHourAngle(lst * u"°", α * u"°")
-computeHourAngle(lst::Time, α::Angle) = computeHourAngle(Time(Nanosecond(lst).value * 1e9 * u"s"), α)
-# computeHourAngle(lst::Unitful.Time, α::Α) where {Α <: Union{Real, <: Angle}} = computeHourAngle(convert(CompoundPeriod, Time(lst.value)), α * u"°") 
+computeHourAngle(lst::Unitful.Time, α::Α) where {Α <: Union{Real, <: Angle}} = computeHourAngle(convert(CompoundPeriod, Time(lst.value)), α * u"°") 
 
 
 # ----------------------------------------------------------------------------------------------- #
