@@ -23,7 +23,7 @@ function GeoCoordinatesGeocentric(φ::Angle{Φ}, λ::Angle{Λ}, a::Length{A}) wh
 	return GeoCoordinatesGeocentric(T(φ), T(λ), T(a))
 end
 
-GeoCoordinatesGeocentric(φ::Angle{Φ}, λ::Angle{Λ})  where {Φ, Λ, A} = GeoCoordinatesGeocentric(promote(φ, λ)..., 0. * u"m")
+GeoCoordinatesGeocentric(φ::Angle{Φ}, λ::Angle{Λ})  where {Φ, Λ} = GeoCoordinatesGeocentric(promote(φ, λ)..., 0. * u"m")
 
 GeoCoordinatesGeocentric(φ::Real, λ::Real, a::Real) = GeoCoordinatesGeocentric(φ * u"°", λ * u"°", a * u"m")
 
