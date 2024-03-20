@@ -24,7 +24,6 @@ CoordinatesCartesian(coords::Tuple{X, Y, Z}) where {X, Y, Z} = CoordinatesCartes
 
 CoordinatesCartesian(x::X, y::Y, z::Z) where {X, Y, Z} = CoordinatesCartesian(SVector{3, promote_type(X, Y, Z)}(x, y, z))
 
-
 # ----------------------------------------------------------------------------------------------- #
 #
 @doc """
