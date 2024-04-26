@@ -15,21 +15,27 @@ export
 @doc """
 Defines a spherical coordinate system.
 The convention adopted is: radius-azimuth-zenith.
-For performance, no units are stored in the structure, although the angles are in degrees.
+For performance, no units are stored in the structure. 
+Angles are internally stored in degrees and the radius in meters.
 When they are explicitly called from the object, they are returned with units.
 """
 struct CoordinatesSpherical{T}
 	coordinates::SVector{3, T}
-	# function CoordinatesSpherical(v::SVector{3, T}) where {T}
-	# 	return new{T}(v)
-	# end
+	function CoordinatesSpherical(v::SVector{3, T}) where {T}
+		return new{T}(v)
+	end
 end
 
-CoordinatesSpherical(coords::AbstractVector) = CoordinatesSpherical(SVector{eltype(coords)}(coords))
+CoordinatesSpherical(coords::Vector) = CoordinatesSpherical(SVector{eltype(coords)}(coords))
 
-CoordinatesSpherical(coords::Tuple{R, Φ, Θ}) where {R, Φ, Θ} = CoordinatesSpherical(SVector{promote_type(R, Φ, Θ)}(coords))
+CoordinatesSpherical(r::R, φ::Φ, θ::Θ) where {R <: Real, Φ <: Real, Θ <: Real} = CoordinatesSpherical(SVector{3, promote_type(R, Φ, Θ)}(r, φ, θ))
 
-CoordinatesSpherical(r::R, φ::Φ, θ::Θ) where {R, Φ, Θ} = CoordinatesSpherical(SVector{3, promote_type(R, Φ, Θ)}(r, φ, θ))
+CoordinatesSpherical(r::R, φ::Φ, θ::Θ) where {R <: Real, Φ <: Angle, Θ <: Angle} = CoordinatesSpherical(r, ustrip(φ |> u"°"), ustrip(θ |> u"°"))
+
+CoordinatesSpherical(r::R, φ::Φ, θ::Θ) where {R <: Length, Φ <: Angle, Θ <: Angle} = CoordinatesSpherical(ustrip(r |> u"m"), ustrip(φ |> u"°"), ustrip(θ |> u"°"))
+
+CoordinatesSpherical(coords::Tuple{R, Φ, Θ}) where {R, Φ, Θ} = CoordinatesSpherical(coords...)
+
 
 # ----------------------------------------------------------------------------------------------- #
 #
