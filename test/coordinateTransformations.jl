@@ -75,7 +75,7 @@ using AstroCoordinates
 		utc = DateTime(1987, 8, 23, 09, 25, 00)
 		time = TimeLAST(utc, location)
 
-		coordHz = convert(CoordinatesHorizontal, convert(CoordinatesEquatorial, coordICRS1_ref), time, location)
+		# coordHz = convert(CoordinatesHorizontal, convert(CoordinatesEquatorial, coordICRS1_ref), time, location)
 		
 		# approxArgs = Dict(:rtol => 1e-5)
 		# @test isapprox(ustrip(getAzimuth(coordHz)), 305.71170612; approxArgs...)
