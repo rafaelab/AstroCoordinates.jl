@@ -9,6 +9,10 @@ export
 	getZenith
 	
 	
+# ----------------------------------------------------------------------------------------------- #
+#
+abstract type AbstractCoordinatesSpherical end
+
 
 # ----------------------------------------------------------------------------------------------- #
 #
@@ -19,7 +23,7 @@ For performance, no units are stored in the structure.
 Angles are internally stored in degrees and the radius in meters.
 When they are explicitly called from the object, they are returned with units.
 """
-struct CoordinatesSpherical{T}
+struct CoordinatesSpherical{T} <: AbstractCoordinatesSpherical
 	coordinates::SVector{3, T}
 	function CoordinatesSpherical(v::SVector{3, T}) where {T}
 		return new{T}(v)
@@ -82,7 +86,18 @@ const getZenith = getθ
 @doc """
 Add methods to get objects of type `CoordinatesSpherical` by index.
 """
-Base.getindex(coords::CoordinatesSpherical, i::Integer) = getCoordinates(coords)[i]
+function Base.getindex(coords::CoordinatesSpherical, i::Integer)
+	if i == 1
+		return getRadius(coords)
+	elseif i == 2
+		return getAzimuth(coords)
+	elseif i == 3
+		return getZenith(coords)
+	else
+		throw(DimensionMismatch("There are only 3 coordinates in type `CoordinatesSpherical`."))
+	end
+end
+
 
 
 # ----------------------------------------------------------------------------------------------- #
