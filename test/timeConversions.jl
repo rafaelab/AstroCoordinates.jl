@@ -1,8 +1,7 @@
 using Test
 
-push!(LOAD_PATH, "$(@__DIR__)/../src")
-using AstronomicalCoordinates
-
+push!(LOAD_PATH, normpath("$(@__DIR__)/../src"))
+using AstroCoordinates
 
 
 # ---------------------------------------------------------------------------------- #
