@@ -9,7 +9,7 @@ Display information about objects of type `AbstractCoordinatesSky`
 
 # Input
 . `io`: `IO`-type objects with standard output \\
-. `coords`: an object of type `AbstractCoordinatesSky` or `CoordinatesCartesian` \\
+. `coords`: an object of type `AbstractCoordinatesSky`  \\
 """
 function Base.show(io::IO, coords::CoordinatesICRS)
 	printstyled(io, "ICRS coordinates: "; bold = true)
@@ -35,13 +35,6 @@ function Base.show(io::IO, coords::CoordinatesSuperGalactic)
 	print(io, " (l, b) = $coordStr")
 end
 
-function Base.show(io::IO, coords::CoordinatesCartesian)
-	printstyled(io, "Cartesian coordinates: "; bold = true)
-	x = @sprintf("%5.4f", coords.x)
-	y = @sprintf("%5.4f", coords.y)
-	z = @sprintf("%5.4f", coords.z)
-	print(io, " (x, y, z) = ($x, $y, $z)")
-end
 
 # ----------------------------------------------------------------------------------------------- #
 #
