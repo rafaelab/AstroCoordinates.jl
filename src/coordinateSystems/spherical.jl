@@ -20,9 +20,9 @@ When they are explicitly called from the object, they are returned with units.
 """
 struct CoordinatesSpherical{T}
 	coordinates::SVector{3, T}
-	function CoordinatesSpherical(v::SVector{3, T}) where {T}
-		return new{T}(v)
-	end
+	# function CoordinatesSpherical(v::SVector{3, T}) where {T}
+	# 	return new{T}(v)
+	# end
 end
 
 CoordinatesSpherical(coords::AbstractVector) = CoordinatesSpherical(SVector{eltype(coords)}(coords))
@@ -61,7 +61,7 @@ getCoordinates(coords::CoordinatesSpherical) = coords.coordinates
 # ----------------------------------------------------------------------------------------------- #
 #
 @doc """
-Get the coordinates by namefor a given `CoordinatesSpherical` or `CoordinatesSpherical`.
+Get the coordinates by name for a given `CoordinatesSpherical`.
 """
 getR(coords::CoordinatesSpherical) = coords.r
 getφ(coords::CoordinatesSpherical) = coords.φ
@@ -69,22 +69,6 @@ getθ(coords::CoordinatesSpherical) = coords.θ
 const getRadius = getR
 const getAzimuth = getφ
 const getZenith = getθ
-
-
-# ----------------------------------------------------------------------------------------------- #
-#
-@doc """
-Get azimuthal angle.
-"""
-getAzimuth(coord::CoordinatesSpherical) = coord.φ
-
-
-# ----------------------------------------------------------------------------------------------- #
-#
-@doc """
-Get zenith angle.
-"""
-getZenith(coord::CoordinatesSpherical) = coord.θ
 
 
 # ----------------------------------------------------------------------------------------------- #
