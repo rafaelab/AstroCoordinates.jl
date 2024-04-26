@@ -19,10 +19,11 @@ import Dates: CompoundPeriod, Period
 
 
 include("common.jl")
+include("coordinateSystems.jl")
 include("geocoordinates.jl")
 include("celestialSphere.jl")
 include("time.jl")
-include("coordinates.jl")
+include("skycoordinates.jl")
 include("projections.jl")
 
 
