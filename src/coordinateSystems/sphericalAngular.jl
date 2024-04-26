@@ -15,6 +15,7 @@ export
 @doc """
 Defines a spherical coordinate system on the unit sphere.
 The convention adopted is: azimuth-zenith.
+Note that units (anglular) may or may not be provided.
 """
 struct CoordinatesSphericalAngular{T} <: AbstractCoordinatesSpherical
 	coordinates::SVector{2, T}
@@ -25,9 +26,7 @@ end
 
 CoordinatesSphericalAngular(coords::Vector) = CoordinatesSphericalAngular(SVector{eltype(coords)}(coords))
 
-CoordinatesSphericalAngular(φ::Φ, θ::Θ) where {Φ <: Angle, Θ <: Angle} = CoordinatesSphericalAngular(SVector{2, promote_type(Φ, Θ)}(φ * u"°", θ * u"°"))
-
-CoordinatesSphericalAngular(φ::Φ, θ::Θ) where {Φ <: Real, Θ <: Real} = CoordinatesSphericalAngular(φ * u"°", θ * u"°")
+CoordinatesSphericalAngular(φ::Φ, θ::Θ) where {Φ <: Real, Θ <: Real} = CoordinatesSphericalAngular(φ, θ)
 
 CoordinatesSphericalAngular(coords::Tuple{Φ, Θ}) where {Φ, Θ} = CoordinatesSphericalAngular(coords...)
 
