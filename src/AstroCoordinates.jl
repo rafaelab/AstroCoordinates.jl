@@ -17,6 +17,8 @@ using Rotations
 import Dates: CompoundPeriod, Period
 
 
+__precompile__(true)
+
 
 include("common.jl")
 include("coordinateSystems.jl")
