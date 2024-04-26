@@ -19,12 +19,10 @@ const _docs_getLongitude_str = "\tgetLongitude(coordinateSystem)\n\nGet the coor
 
 # ----------------------------------------------------------------------------------------------- #
 #
-# include("celestial/cartesian.jl")
 include("celestial/icrs.jl")
 include("celestial/equatorial.jl")
 include("celestial/galactic.jl")
 include("celestial/supergalactic.jl")
-# include("celestial/ecliptic.jl")
 include("celestial/horizontal.jl")
 include("celestial/utilities.jl")
 include("celestial/transformations.jl")
