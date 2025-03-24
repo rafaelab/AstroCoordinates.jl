@@ -20,7 +20,7 @@ coordEq = convert(CoordinatesEquatorial, coordICRS)
 Time conversions follow the same logic:
 ```
 utc = TimeUTC(DateTime(2010, 01, 01, 00, 00, 00))
-gmst = convert(TimeGMST, t1)
+gmst = convert(TimeGMST, utc)
 ```
 
 ### Performance
