@@ -1,7 +1,7 @@
 name = "AstroCoordinates"
 uuid = "caa59f73-bae3-481d-ad70-51c645d51e09"
 authors = ["Rafael <rafaelab@users.noreply.github.com>"]
-version = "0.1.2"
+version = "0.2.1"
 
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
