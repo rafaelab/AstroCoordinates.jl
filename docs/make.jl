@@ -1,8 +1,6 @@
 using Documenter
-
-push!(LOAD_PATH, "..")
-
 using AstroCoordinates
+
 
 DocMeta.setdocmeta!(AstroCoordinates, :DocTestSetup, :(using AstroCoordinates))
 
